@@ -2,7 +2,7 @@
 
 **Automated Cybersecurity News Aggregation & Intelligence Pipeline**
 
-CyberFeed is an n8n-based workflow that automatically collects, summarizes, categorizes, and publishes daily cybersecurity news to a Notion database -- and surfaces them on [sedataras.com](https://sedataras.com).
+CyberFeed is an n8n-based workflow that automatically collects, summarizes, categorizes, and publishes daily cybersecurity news to a Notion database.
 
 ---
 
@@ -62,28 +62,9 @@ The workflow auto-classifies articles using keyword matching across these catego
 
 ---
 
-## Integration with sedataras.com
+## Integration
 
-CyberFeed is a live section on [sedataras.com](https://sedataras.com), Sedat Aras's personal portfolio and services website. The integration works as follows:
-
-```
-n8n Workflow                      sedataras.com (Next.js)
-+-------------------+            +---------------------------+
-| CyberFeed         |            | /app/cyberfeed/           |
-| (this workflow)   |  writes    |   page.tsx (listing)      |
-|                   | -------->  |   [id]/page.tsx (detail)   |
-| Notion DB         |            | /app/api/cyberfeed/       |
-| "CyberSecurity    |  reads     |   route.ts (API proxy)    |
-|  RSS"             | <--------  | /app/components/          |
-+-------------------+            |   CyberFeedList.tsx        |
-                                 | /app/lib/notion.ts         |
-                                 +---------------------------+
-```
-
-- **n8n** writes daily digests to a Notion database
-- **Next.js** reads from the same Notion database via the Notion API
-- Articles are displayed on the homepage (`/#cyberfeed`) and have individual detail pages (`/cyberfeed/[id]`)
-- Each article page renders the full AI-generated summary with bold formatting, categories, and CEO brief
+CyberFeed writes daily digests to a Notion database. Any frontend application can consume the same database via the Notion API to display articles publicly.
 
 ---
 
@@ -139,5 +120,4 @@ n8n Workflow                      sedataras.com (Next.js)
 ## Author
 
 **Sedat Aras**
-- Web: [sedataras.com](https://sedataras.com)
 - GitHub: [sedat4ras](https://github.com/sedat4ras)
